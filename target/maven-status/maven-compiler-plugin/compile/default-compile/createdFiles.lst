@@ -1,9 +1,0 @@
-com/epam/esm/spring/dao/GiftCertificateDAO.class
-com/epam/esm/model/GiftCertificateMapper.class
-com/epam/esm/spring/config/GiftCertificateService.class
-com/epam/esm/spring/config/AppConfig.class
-com/epam/esm/spring/config/GiftCertificateServiceImpl.class
-com/epam/esm/spring/dao/GiftCertificateDAOImpl.class
-com/epam/esm/model/GiftSertificate.class
-com/epam/esm/spring/config/AppController.class
-com/epam/esm/App.class

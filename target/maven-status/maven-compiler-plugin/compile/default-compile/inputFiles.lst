@@ -1,9 +1,0 @@
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/config/AppConfig.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/App.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/dao/GiftCertificateDAOImpl.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/model/GiftSertificate.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/config/GiftCertificateServiceImpl.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/config/AppController.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/model/GiftCertificateMapper.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/dao/GiftCertificateDAO.java
-/home/kakty3/IdeaProjects/SpringJDBCRest/src/main/java/com/epam/esm/spring/config/GiftCertificateService.java
