@@ -23,7 +23,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
   }
 
   @Override
-  public int addGiftCertificate(GiftCertificate giftCertificate) {
+  public Long addGiftCertificate(GiftCertificate giftCertificate) {
     return giftCertificateDAO.createGiftCertificate(giftCertificate);
   }
 

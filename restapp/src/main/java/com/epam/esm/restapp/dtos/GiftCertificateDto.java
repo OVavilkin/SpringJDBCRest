@@ -3,6 +3,7 @@ package com.epam.esm.restapp.dtos;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class GiftCertificateDto {
 
@@ -16,7 +17,9 @@ public class GiftCertificateDto {
   private String lastUpdateDate;
 
   public LocalDate getCreateDate() throws ParseException {
-    return LocalDate.parse(this.createDate, dateFormat);
+    return Objects.isNull(this.createDate)
+            ? null
+            : LocalDate.parse(this.createDate, dateFormat);
   }
 
   public void setCreateDate(LocalDate date) {
@@ -24,7 +27,9 @@ public class GiftCertificateDto {
   }
 
   public LocalDate getLastUpdateDate() throws ParseException {
-    return LocalDate.parse(this.lastUpdateDate, dateFormat);
+    return Objects.isNull(this.lastUpdateDate)
+        ? null
+        : LocalDate.parse(this.lastUpdateDate, dateFormat);
   }
 
   public void setLastUpdateDate(LocalDate date) {

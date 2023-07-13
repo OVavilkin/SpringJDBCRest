@@ -8,7 +8,7 @@ public interface GiftCertificateService {
 
   GiftCertificate getById(Long id);
 
-  int addGiftCertificate(GiftCertificate giftCertificate);
+  Long addGiftCertificate(GiftCertificate giftCertificate);
 
   int updateGiftCertificate(GiftCertificate giftCertificate);
 

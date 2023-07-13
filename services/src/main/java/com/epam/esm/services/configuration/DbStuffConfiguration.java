@@ -1,4 +1,4 @@
-package com.epam.esm.services.datasources;
+package com.epam.esm.services.configuration;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,11 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.TransactionManager;
 
 @Configuration
 @PropertySource("classpath:database.properties")
-public class DbDataSource {
+public class DbStuffConfiguration {
 
   @Autowired Environment environment;
 
@@ -27,5 +30,15 @@ public class DbDataSource {
     driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
     driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
     return driverManagerDataSource;
+  }
+
+  @Bean
+  public JdbcTemplate jdbcTemplate() {
+    return new JdbcTemplate(dataSource());
+  }
+
+  @Bean
+  public TransactionManager transactionManager() {
+    return new DataSourceTransactionManager(dataSource());
   }
 }

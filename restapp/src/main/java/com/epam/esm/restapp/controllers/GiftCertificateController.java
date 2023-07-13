@@ -40,7 +40,7 @@ public class GiftCertificateController {
     GiftCertificate giftCertificate = convertToModel(giftCertificateDto);
     giftCertificate.setCreateDate(LocalDate.now());
     giftCertificate.setLastUpdateDate(LocalDate.now());
-    long id = giftCertificateService.addGiftCertificate(giftCertificate);
+    Long id = giftCertificateService.addGiftCertificate(giftCertificate);
     return convertToDto(giftCertificateService.getById(id));
   }
 
@@ -48,7 +48,8 @@ public class GiftCertificateController {
   public GiftCertificateDto updateGiftCertificate(
       @RequestBody GiftCertificateDto giftCertificateDto) {
     GiftCertificate giftCertificate = convertToModel(giftCertificateDto);
-    long id = giftCertificateService.addGiftCertificate(giftCertificate);
+    Long id = giftCertificate.getId();
+    giftCertificateService.addGiftCertificate(giftCertificate);
     return convertToDto(giftCertificateService.getById(id));
   }
 
@@ -57,14 +58,14 @@ public class GiftCertificateController {
     return giftCertificateService.deleteGiftCertificate(id);
   }
 
-  @RequestMapping(value = "/unhandled", method = RequestMethod.GET)
-  public void throwUnhandledException() {
-    throw new RuntimeException("Unhandled Exception");
-  }
-
   @RequestMapping(value = "/handled", method = RequestMethod.GET)
   public void throwHandledException() {
     giftCertificateService.throwExceptionExample();
+  }
+
+  @RequestMapping(value = "/unhandled", method = RequestMethod.GET)
+  public void throwUnhandledException() {
+    throw new RuntimeException("Unhandled Exception");
   }
 
   private GiftCertificateDto convertToDto(GiftCertificate giftCertificate) {

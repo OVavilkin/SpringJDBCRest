@@ -13,5 +13,5 @@ public interface GiftCertificateDAO {
 
   int updateGiftCertificate(GiftCertificate giftCertificate);
 
-  int createGiftCertificate(GiftCertificate giftCertificate);
+  Long createGiftCertificate(GiftCertificate giftCertificate);
 }

@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @ControllerAdvice
 public class MyExceptionHandler {
 
@@ -15,7 +18,14 @@ public class MyExceptionHandler {
   @ExceptionHandler(DaoNotFoundException.class)
   public void handleDaoNotFoundException(HttpServletRequest request, Exception ex) {
     if (ex instanceof DaoNotFoundException) {
-      logger.info(request.getRequestURL() + " not found: " + ex.getMessage());
+      logger.info(
+          request.getRequestURL()
+              + " not found: "
+              + ex.getMessage()
+              + "\n"
+              + Arrays.stream(ex.getStackTrace())
+                  .map(StackTraceElement::toString)
+                  .collect(Collectors.joining("\n")));
     } else {
       logger.error("Not implemented: " + ex.getMessage());
     }
