@@ -1,8 +1,8 @@
 package com.epam.esm.services.daos;
 
 import com.epam.esm.services.exceptions.DaoNotFoundException;
+import com.epam.esm.services.models.GiftCertificate;
 import com.epam.esm.services.models.GiftCertificateMapper;
-import com.epam.esm.services.models.GiftSertificate;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class GiftCertificateDAOImpl implements GiftCertificateDAO {
   }
 
   @Override
-  public GiftSertificate getGiftCertificateById(Long id) {
+  public GiftCertificate getGiftCertificateById(Long id) {
     try {
       return jdbcTemplate.queryForObject(SQL_FIND_GIFTCERTIFICATE, new GiftCertificateMapper(), id);
     } catch (DataAccessException ex) {
@@ -40,7 +40,7 @@ public class GiftCertificateDAOImpl implements GiftCertificateDAO {
   }
 
   @Override
-  public List<GiftSertificate> getAllGiftCertificates() {
+  public List<GiftCertificate> getAllGiftCertificates() {
     return jdbcTemplate.query(SQL_GET_ALL_GIFTCERTIFICATES, new GiftCertificateMapper());
   }
 
@@ -50,27 +50,27 @@ public class GiftCertificateDAOImpl implements GiftCertificateDAO {
   }
 
   @Override
-  public int updateGiftCertificate(GiftSertificate giftSertificate) {
+  public int updateGiftCertificate(GiftCertificate giftCertificate) {
     return jdbcTemplate.update(
         SQL_UPDATE_GIFTCERTIFICATE,
-        giftSertificate.getName(),
-        giftSertificate.getDescription(),
-        giftSertificate.getPrice(),
-        giftSertificate.getDuration(),
-        giftSertificate.getCreateDate(),
-        giftSertificate.getLastUpdateDate(),
-        giftSertificate.getId());
+        giftCertificate.getName(),
+        giftCertificate.getDescription(),
+        giftCertificate.getPrice(),
+        giftCertificate.getDuration(),
+        giftCertificate.getCreateDate(),
+        giftCertificate.getLastUpdateDate(),
+        giftCertificate.getId());
   }
 
   @Override
-  public int createGiftCertificate(GiftSertificate giftSertificate) {
+  public int createGiftCertificate(GiftCertificate giftCertificate) {
     return jdbcTemplate.update(
         SQL_INSERT_GIFTCERTIFICATE,
-        giftSertificate.getName(),
-        giftSertificate.getDescription(),
-        giftSertificate.getPrice(),
-        giftSertificate.getDuration(),
-        giftSertificate.getCreateDate(),
-        giftSertificate.getLastUpdateDate());
+        giftCertificate.getName(),
+        giftCertificate.getDescription(),
+        giftCertificate.getPrice(),
+        giftCertificate.getDuration(),
+        giftCertificate.getCreateDate(),
+        giftCertificate.getLastUpdateDate());
   }
 }

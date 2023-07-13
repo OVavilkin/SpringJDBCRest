@@ -2,7 +2,7 @@ package com.epam.esm.services.services;
 
 import com.epam.esm.services.daos.GiftCertificateDAO;
 import com.epam.esm.services.exceptions.DaoException;
-import com.epam.esm.services.models.GiftSertificate;
+import com.epam.esm.services.models.GiftCertificate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,23 +13,23 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
   @Autowired GiftCertificateDAO giftCertificateDAO;
 
   @Override
-  public List<GiftSertificate> getAllGiftCertificates() {
+  public List<GiftCertificate> getAllGiftCertificates() {
     return giftCertificateDAO.getAllGiftCertificates();
   }
 
   @Override
-  public GiftSertificate getById(Long id) {
+  public GiftCertificate getById(Long id) {
     return giftCertificateDAO.getGiftCertificateById(id);
   }
 
   @Override
-  public int addGiftCertificate(GiftSertificate giftSertificate) {
-    return giftCertificateDAO.createGiftCertificate(giftSertificate);
+  public int addGiftCertificate(GiftCertificate giftCertificate) {
+    return giftCertificateDAO.createGiftCertificate(giftCertificate);
   }
 
   @Override
-  public int updateGiftCertificate(GiftSertificate giftSertificate) {
-    return giftCertificateDAO.updateGiftCertificate(giftSertificate);
+  public int updateGiftCertificate(GiftCertificate giftCertificate) {
+    return giftCertificateDAO.updateGiftCertificate(giftCertificate);
   }
 
   @Override

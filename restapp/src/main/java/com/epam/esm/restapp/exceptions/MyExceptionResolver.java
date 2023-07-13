@@ -1,6 +1,9 @@
 package com.epam.esm.restapp.exceptions;
 
 import com.epam.esm.services.exceptions.MyException;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -28,11 +31,27 @@ public class MyExceptionResolver extends AbstractHandlerExceptionResolver {
       return modelAndView;
     }
 
-    String message = "Don't blame me, I'm a teapot!";
-    logger.error(String.format("Something bad happened... [%s]\n...%s", ex.getMessage(), message));
+    StringBuffer message = new StringBuffer("Don't blame me, I'm a teapot!");
+
+    String errorMessage = getStackTrace(ex);
+    message.append("\n\n\n").append(errorMessage);
+    logger.error(
+        String.format(
+            "Something bad happened... [%s]\n...%s\nStack Trace: \n%s",
+            ex.getMessage(), message, errorMessage));
+    if (!Objects.isNull(ex.getCause())) {
+      message.append(ex.getCause().getMessage());
+      logger.error(String.format("Original exception:\n%s", ex.getCause().getMessage()));
+    }
 
     modelAndView.addObject("error", message);
     modelAndView.setStatus(HttpStatus.I_AM_A_TEAPOT);
     return modelAndView;
+  }
+
+  private String getStackTrace(Throwable ex) {
+    return Arrays.stream(ex.getStackTrace())
+        .map(StackTraceElement::toString)
+        .collect(Collectors.joining("\n"));
   }
 }

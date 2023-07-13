@@ -2,7 +2,7 @@ package com.epam.esm.services.models;
 
 import java.time.LocalDate;
 
-public class GiftSertificate {
+public class GiftCertificate {
 
   private Long id;
   private String name;
@@ -12,9 +12,9 @@ public class GiftSertificate {
   private LocalDate createDate;
   private LocalDate lastUpdateDate;
 
-  public GiftSertificate() {}
+  public GiftCertificate() {}
 
-  public GiftSertificate(
+  public GiftCertificate(
       String name,
       String description,
       Double price,

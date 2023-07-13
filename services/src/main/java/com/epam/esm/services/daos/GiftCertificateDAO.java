@@ -1,17 +1,17 @@
 package com.epam.esm.services.daos;
 
-import com.epam.esm.services.models.GiftSertificate;
+import com.epam.esm.services.models.GiftCertificate;
 import java.util.List;
 
 public interface GiftCertificateDAO {
 
-  GiftSertificate getGiftCertificateById(Long id);
+  GiftCertificate getGiftCertificateById(Long id);
 
-  List<GiftSertificate> getAllGiftCertificates();
+  List<GiftCertificate> getAllGiftCertificates();
 
   int deleteGiftCertificate(Long id);
 
-  int updateGiftCertificate(GiftSertificate giftSertificate);
+  int updateGiftCertificate(GiftCertificate giftCertificate);
 
-  int createGiftCertificate(GiftSertificate giftSertificate);
+  int createGiftCertificate(GiftCertificate giftCertificate);
 }

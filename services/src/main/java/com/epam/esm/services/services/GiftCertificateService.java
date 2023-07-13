@@ -1,16 +1,16 @@
 package com.epam.esm.services.services;
 
-import com.epam.esm.services.models.GiftSertificate;
+import com.epam.esm.services.models.GiftCertificate;
 import java.util.List;
 
 public interface GiftCertificateService {
-  List<GiftSertificate> getAllGiftCertificates();
+  List<GiftCertificate> getAllGiftCertificates();
 
-  GiftSertificate getById(Long id);
+  GiftCertificate getById(Long id);
 
-  int addGiftCertificate(GiftSertificate giftSertificate);
+  int addGiftCertificate(GiftCertificate giftCertificate);
 
-  int updateGiftCertificate(GiftSertificate giftSertificate);
+  int updateGiftCertificate(GiftCertificate giftCertificate);
 
   int deleteGiftCertificate(Long id);
 
